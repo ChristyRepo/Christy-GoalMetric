@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTalentPlanner.Web", "src\MyTalentPlanner.Web\MyTalentPlanner.Web.csproj", "{A6D97F15-BA4E-445D-84F0-7610CFD920EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTalentPlanner.Data", "src\MyTalentPlanner.Data\MyTalentPlanner.Data.csproj", "{B702822D-8C87-4CC6-ADC0-E0FDCCA19159}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTalentPlanner.Services", "src\MyTalentPlanner.Services\MyTalentPlanner.Services.csproj", "{709E1E33-4057-46E2-850C-9C4E941967D5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTalentPlanner.EmailWebJob", "src\MyTalentPlanner.EmailWebJob\MyTalentPlanner.EmailWebJob.csproj", "{408C0E8D-0E03-4391-B75B-116D54A9F373}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project Files", "Project Files", "{77916B2A-B8EB-48E0-B687-1F24CCA526F4}"
+	ProjectSection(SolutionItems) = preProject
+		addMIgration.ps1 = addMIgration.ps1
+		azure-pipelines.yml = azure-pipelines.yml
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6D97F15-BA4E-445D-84F0-7610CFD920EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6D97F15-BA4E-445D-84F0-7610CFD920EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6D97F15-BA4E-445D-84F0-7610CFD920EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6D97F15-BA4E-445D-84F0-7610CFD920EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B702822D-8C87-4CC6-ADC0-E0FDCCA19159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B702822D-8C87-4CC6-ADC0-E0FDCCA19159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B702822D-8C87-4CC6-ADC0-E0FDCCA19159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B702822D-8C87-4CC6-ADC0-E0FDCCA19159}.Release|Any CPU.Build.0 = Release|Any CPU
+		{709E1E33-4057-46E2-850C-9C4E941967D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{709E1E33-4057-46E2-850C-9C4E941967D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{709E1E33-4057-46E2-850C-9C4E941967D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{709E1E33-4057-46E2-850C-9C4E941967D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{408C0E8D-0E03-4391-B75B-116D54A9F373}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{408C0E8D-0E03-4391-B75B-116D54A9F373}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{408C0E8D-0E03-4391-B75B-116D54A9F373}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{408C0E8D-0E03-4391-B75B-116D54A9F373}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D650882-AD8E-4386-AA12-C9CE11AF3094}
+	EndGlobalSection
+EndGlobal

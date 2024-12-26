@@ -1,0 +1,75 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+  - main
+  
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+  - task: UseDotNet@2
+    inputs:
+      version: '5.0.x'
+      includePreviewVersions: true 
+
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'restore'
+    displayName: 'restore'
+  
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'build'
+      arguments: '--configuration $(buildConfiguration)'
+    displayName: 'dotnet build $(buildConfiguration)'
+
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'publish'
+      publishWebProjects: false
+      projects: '**/MyTalentPlanner.EmailWebJob.csproj'
+      arguments: '--output $(Build.BinariesDirectory)/MyTalentPlanner.Web/App_Data/jobs/continuous/MyTalentPlanner_EmailWebJob'
+      zipAfterPublish: false
+      modifyOutputPath: false
+    displayName: 'dotnet publish webjob'
+  
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: publish
+      publishWebProjects: True
+      arguments: '--configuration $(BuildConfiguration) --output $(Build.BinariesDirectory)'
+      zipAfterPublish: false
+    displayName: 'publish'
+
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: '$(Build.BinariesDirectory)/MyTalentPlanner.Web'
+      includeRootFolder: false
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/MyTalentPlanner.Web.zip'
+      replaceExistingArchive: true
+    displayName: 'archive entire artifactStagingDirectory'
+
+  
+  # - task: PowerShell@2
+  #   inputs:
+  #     targetType: 'inline'
+  #     script: |
+  #       write-host "Installing dotnet-ef"
+  #       dotnet tool restore | Out-Null
+  #       write-host "Building migration script"
+  #       dotnet ef migrations script --idempotent --project .\src\MyTalentPlanner.Data\MyTalentPlanner.Data.csproj -s .\src\MyTalentPlanner.Web\MyTalentPlanner.Web.csproj --output $(Build.ArtifactStagingDirectory)/db.sql
+   
+  
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
+    displayName: 'push to artifacts'
